@@ -1,0 +1,62 @@
+{
+    "name": "create-fronted-lib",
+    "version": "0.0.1",
+    "private": true,
+    "types": "./index.d.ts",
+    "sideEffects": false,
+    "engines": {
+        "node": ">=12.0.0"
+    },
+    "scripts": {
+        "build:esm": "cross-env BABEL_ENV=esm babel --config-file ./babel.config.js --extensions \".js,.ts\" ./lib --out-dir ./build/esm --ignore \"./**/*.test.js\"",
+        "build:es": "cross-env BABEL_ENV=es babel --config-file ./babel.config.js --extensions \".js,.ts\" ./lib --out-dir ./build/es --ignore \"**/*.test.js,**/*.d.ts\"",
+        "build": "rushx test && rm -rf build && yarn build:esm && yarn build:es",
+        "eslint": "eslint --ext .js lib/* --fix --color --cache",
+        "prepare": "husky install",
+        "test": "jest --coverage",
+        "spellcheck": "cspell lint \"lib/*\"",
+        "prettify": "pretty-quick --staged"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.16.8",
+        "@babel/core": "^7.16.12",
+        "@babel/eslint-parser": "^7.16.5",
+        "@babel/node": "^7.16.8",
+        "@babel/plugin-transform-react-constant-elements": "^7.16.7",
+        "@babel/plugin-transform-runtime": "^7.16.10",
+        "@babel/preset-env": "^7.16.11",
+        "@babel/preset-react": "^7.16.7",
+        "@babel/preset-typescript": "^7.16.7",
+        "@babel/runtime": "^7.16.7",
+        "@jest/reporters": "^27.4.6",
+        "@testing-library/jest-dom": "^5.16.1",
+        "@types/jest": "^27.4.0",
+        "@types/node": "^17.0.12",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^27.4.6",
+        "babel-plugin-optimize-clsx": "^2.6.2",
+        "cross-env": "^7.0.3",
+        "cspell": "^5.16.0",
+        "enzyme": "^3.11.0",
+        "eslint-config-react-app": "^7.0.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-node": "11.1.0",
+        "eslint-plugin-promise": "^6.0.0",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-react": "^7.28.0",
+        "eslint": "^8.7.0",
+        "husky": "^7.0.4",
+        "jest-circus": "27.4.6",
+        "jest-resolve": "27.4.6",
+        "jest-watch-typeahead": "^1.0.0",
+        "jest": "^27.4.7",
+        "prettier": "^2.5.1",
+        "pretty-quick": "^3.1.3",
+        "typescript": "^4.5.5"
+    },
+    "files": [
+        "build",
+        "lib",
+        "index.d.ts"
+    ]
+}

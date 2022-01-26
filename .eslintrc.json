@@ -1,0 +1,28 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "es2017": true,
+        "jest": true
+    },
+    "extends": ["plugin:react/recommended"],
+    "plugins": ["react-hooks"],
+    "parser": "@babel/eslint-parser",
+    "parserOptions": {
+        "ecmaVersion": 8,
+        "requireConfigFile": false,
+        "sourceType": "module"
+    },
+    "rules": {
+        "no-plusplus": "off",
+        "prefer-destructuring": "off",
+        "prefer-template": "warn"
+    },
+    "settings": {
+        "import/extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "version": "detect"
+    },
+    "globals": {
+        "proccess": true
+    }
+}
